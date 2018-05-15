@@ -189,10 +189,10 @@ function createInViewport(container, debounceValue, failsafe) {
     // The element must overlap with the visible part of the viewport
     var visible =
       (
-        eltRect.right >= viewport.left &&
-        eltRect.left <= viewport.right &&
-        eltRect.bottom >= viewport.top &&
-        eltRect.top <= viewport.bottom
+        eltRect.right - eltRect.width / 2 >= viewport.left &&
+        eltRect.left + eltRect.width / 2 <= viewport.right &&
+        eltRect.bottom - eltRect.height / 2 >= viewport.top &&
+        eltRect.top + eltRect.height / 2 <= viewport.bottom
       );
 
     return visible;
